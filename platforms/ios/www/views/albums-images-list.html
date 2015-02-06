@@ -1,0 +1,27 @@
+<div id="images-list" >
+    <ion-content>
+        <div class="main-container">
+            <div class="back-bt" onclick="app.goBack();">
+                <img src="img/back-bt.png" />
+            </div>
+            <div class="main-title">
+                <img src="img/images/icon.png">
+                <label>Fotos</label>
+            </div>
+        </div>
+
+        <div class ="white-box">
+            {{album.Album.title}}
+            <div class="white-circle">{{cantidadImages}}</div>
+        </div>
+        <br/>
+        <ul class="grid effect-2" id="grid">
+            <li ng-repeat="image in images" repeat-complete="createMosaic()">
+                <a href="#/images-view/{{image.id}}">
+                    <img src="{{pathImg + image.url}}">
+                </a>
+            </li>
+        </ul>
+    </ion-content>
+</div>
+

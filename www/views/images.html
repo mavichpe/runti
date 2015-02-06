@@ -1,0 +1,21 @@
+<div id="images" >
+    <ion-content>
+        <div class="main-container ">
+            <div class="main-title">
+                <img src="img/images/icon.png">
+                <label>Fotos</label>
+            </div>
+
+            <ul class="options">
+                <li ng-click="goToMyImages()">
+                    Mis Imagenes
+                </li>
+                <li ng-click="goToRuntiImages()">
+                    Fotos Runti 
+                    <div class="sub-amount" ng-show="{{pendend > 0}}">{{pendend}}</div>
+                </li>
+            </ul>
+        </div>
+    </ion-content>
+</div>
+

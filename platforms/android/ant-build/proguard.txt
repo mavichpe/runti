@@ -1,0 +1,30 @@
+# view AndroidManifest.xml #generated:16
+-keep class com.facebook.LoginActivity { <init>(...); }
+
+# view res/layout/com_facebook_usersettingsfragment.xml #generated:48
+-keep class com.facebook.widget.LoginButton { <init>(...); }
+
+# view AndroidManifest.xml #generated:25
+-keep class com.plugin.gcm.CordovaGCMBroadcastReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:32
+-keep class com.plugin.gcm.GCMIntentService { <init>(...); }
+
+# view AndroidManifest.xml #generated:24
+-keep class com.plugin.gcm.PushHandlerActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:6
+-keep class com.runti.bbapp { <init>(...); }
+
+# view AndroidManifest.xml #generated:12
+-keep class com.synconset.MultiImageChooserActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:17
+-keep class de.appplant.cordova.plugin.localnotification.Receiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:23
+-keep class de.appplant.cordova.plugin.localnotification.ReceiverActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:18
+-keep class de.appplant.cordova.plugin.localnotification.Restore { <init>(...); }
+

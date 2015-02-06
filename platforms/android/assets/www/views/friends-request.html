@@ -1,0 +1,38 @@
+<div id="friends" >
+    <ion-content>
+        <div class="main-container request">
+            <div class="back-bt" onclick="app.goBack();">
+                <img src="img/back-bt.png" />
+            </div>
+            <div ng-show="pedingRequests.length > 0" >
+                <h2 class="heading"> 
+                    <b>Solicitudes Pedientes</b>
+                </h2> 
+                <ul class="friends" >
+                    <li class="friend-list" ng-repeat="pedingRequest in pedingRequests">
+                        <div class=" request-{{pedingRequest.Friend.id}}">
+                            <a href="#/profile/{{pedingRequest.Friend.friend.User.id}}" class="request-name">
+                                <div >
+                                    <img width="80" height="80" ng-show="pedingRequest.Friend.friend.User.fcid != 0" src="https://graph.facebook.com/{{pedingRequest.Friend.friend.User.id == currentUser ? pedingRequest.Friend.friend.User.fcid:pedingRequest.Friend.friend.User.fcid}}/picture?type=large" />
+                                    <img width="80" height="80" ng-show="pedingRequest.Friend.friend.User.fcid == 0" src="img/profile/change-image.png" />
+                                    <div class="name">
+                                        {{pedingRequest.Friend.friend.User.id == currentUser ? pedingRequest.Friend.friend.User.nombre + " " + pedingRequest.Friend.friend.User.apellido : pedingRequest.Friend.friend.User.nombre + " " + pedingRequest.Friend.friend.User.apellido}}
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="response-box">
+                                <div class="std-button response-request action" ng-click="acceptRequest({{pedingRequest.Friend.id}})">
+                                    Aceptar
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </ion-content>
+</div>
+<div class="input-holder">
+
+</div>
+

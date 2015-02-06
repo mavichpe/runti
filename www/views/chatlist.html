@@ -1,0 +1,66 @@
+<div id="friends" class="chat" >
+    <ion-content>    
+        <div class="main-container">
+            <!--            <div class="back-bt" onclick="app.goBack();">
+                            <img src="img/back-bt.png" />
+                        </div>-->
+            <div class="icon-block">
+                <img src="img/chat/icon.png">
+                Chat
+            </div>
+            <div class="clearfix"></div>
+            <ul class="friends {{currentChat.length ? 'border-last' : ''}} current-chat"  >
+                <li class="friend" ng-repeat="friend in currentChat">
+                    <div class="friend-list" >
+                        <a href ="#/chat/{{friend.Friend.friend.User.id == currentUser ? friend.Friend.user.User.id : friend.Friend.friend.User.id}}">
+                            <div class="avatar">
+                                <div class="pending-message" ng-show="{{pendingMessage[(friend.Friend.friend.User.id == currentUser ? friend.Friend.user.User.id : friend.Friend.friend.User.id)].length > 0}}">{{pendingMessage[(friend.Friend.friend.User.id == currentUser ? friend.Friend.user.User.id : friend.Friend.friend.User.id)].length}} </div>
+                                <img width="80" height="80" ng-show="friend.Friend.friend.User.fcid != 0" src="https://graph.facebook.com/{{friend.Friend.friend.User.id == currentUser ? friend.Friend.user.User.fcid:friend.Friend.friend.User.fcid}}/picture?type=large" />
+                                <img width="80" height="80" ng-show="friend.Friend.friend.User.fcid == 0" src="img/profile/change-image.png" />
+                            </div>
+                            <span class="name">
+                                {{friend.Friend.friend.User.id == currentUser ? friend.Friend.user.User.nombre + " " + friend.Friend.user.User.apellido : friend.Friend.friend.User.nombre + " " + friend.Friend.friend.User.apellido}}
+                            </span>
+                            <div class="last-message">
+                                {{friend.Message.lastmessage.Message.message}}
+                            </div>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <h2 class="heading"> 
+                <b>Amigos</b>
+            </h2> 
+            <ul class="friends {{friends.length ? 'border-last' : ''}}"  >
+                <li class="friend" ng-show="!friends.length">
+                    <div class="">
+                        <div class="title">
+                            Ustes no tiene amigos actualmente
+                        </div>
+                    </div>
+                </li>
+                <li class="friend" ng-repeat="friend in friends">
+                    <div class="friend-list" >
+                        <a href ="#/chat/{{friend.Friend.friend.User.id == currentUser ? friend.Friend.user.User.id : friend.Friend.friend.User.id}}">
+                            <div class="avatar">
+                                <div class="pending-message" ng-show="{{pendingMessage[(friend.Friend.friend.User.id == currentUser ? friend.Friend.user.User.id : friend.Friend.friend.User.id)].length > 0}}">{{pendingMessage[(friend.Friend.friend.User.id == currentUser ? friend.Friend.user.User.id : friend.Friend.friend.User.id)].length}} </div>
+                                <img width="80" height="80" ng-show="friend.Friend.friend.User.fcid != 0" src="https://graph.facebook.com/{{friend.Friend.friend.User.id == currentUser ? friend.Friend.user.User.fcid:friend.Friend.friend.User.fcid}}/picture?type=large" />
+                                <img width="80" height="80" ng-show="friend.Friend.friend.User.fcid == 0" src="img/profile/change-image.png" />
+                            </div><span class="name">
+                                {{friend.Friend.friend.User.id == currentUser ? friend.Friend.user.User.nombre + " " + friend.Friend.user.User.apellido : friend.Friend.friend.User.nombre + " " + friend.Friend.friend.User.apellido}}
+                            </span>
+                        </a>
+                    </div>
+                </li>
+                <li class="friend" ng-show="friends % 2 != 0">
+                    <div class="friend-list">
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </ion-content></div>
+<div class="input-holder">
+
+</div>
+

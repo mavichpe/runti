@@ -1,0 +1,63 @@
+<div id="friends" >
+    <ion-content overflowScroll = "true" padding="true">    
+        <div class="main-container">
+            <div class="icon-block">
+                <img src="img/friends/icon.png">
+                AMIGOS
+            </div>
+            <div class="clearfix"></div>
+            <h2 class="heading"> 
+                <b>Buscar Amigos </b>
+            </h2> 
+
+            <div class="search-form fullwidth">
+                <input name="data[User][filter]" id="search-input" type="text" placeholder="Nombre Amigo ..." style="width: 97%" />
+                <div class="friends-list"></div>
+            </div>
+            <hr/>
+
+            <a href="{{pedingRequests.length > 0 ? '#/friends-request':'javascript:void(0)'}}" class="std-button friends-request {{pedingRequests.length > 0 ? 'have-pending':'' }}" >
+                <div class="notificacion-amount" ng-show="{{pedingRequests.length > 0}}">{{pedingRequests.length}}</div>
+                Solicitud de Amigos
+            </a>
+            <div class="std-button" ng-click="requestFBFriends()" >
+                <img src="img/facebook-icon.png" style="width: 25px; margin-right: 10px;"> Invitar a amigos
+            </div>
+            <hr/>
+            <br/>
+
+            <h2 class="heading"> 
+                <b>Mis Amigos </b>
+            </h2> 
+
+            <ul class="friends {{friends.length ? 'border-last' : ''}}"  >
+                <li class="friend" ng-show="!friends.length">
+                    <div class="">
+                        <div class="title">
+                            Ustes no tiene amigos actualmente
+                        </div>
+                    </div>
+                </li>
+                <li class="friend" ng-repeat="friend in friends">
+                    <div class="friend-list" >
+                        <a href="#/profile/{{friend.Friend.friend.User.id == currentUser ? friend.Friend.user.User.id : friend.Friend.friend.User.id}}">
+                            <img width="80" height="80" ng-show="friend.Friend.friend.User.fcid != 0" src="https://graph.facebook.com/{{friend.Friend.friend.User.id == currentUser ? friend.Friend.user.User.fcid:friend.Friend.friend.User.fcid}}/picture?type=large" />
+                            <img width="80" height="80" ng-show="friend.Friend.friend.User.fcid == 0" src="img/profile/change-image.png" />
+                            <span class="name">
+                                {{friend.Friend.friend.User.id == currentUser ? friend.Friend.user.User.nombre + " " + friend.Friend.user.User.apellido : friend.Friend.friend.User.nombre + " " + friend.Friend.friend.User.apellido}}
+                            </span>
+                        </a>
+                    </div>
+                </li>
+                <li class="friend" ng-show="friends % 2 != 0">
+                    <div class="friend-list">
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </ion-content></div>
+<div class="input-holder">
+
+</div>
+

@@ -1,0 +1,60 @@
+<div id="invite"  >
+    <ion-content>
+        <div class="main-container">
+            <!--            <div class="back-bt" onclick="app.goBack();">
+                            <img src="img/back-bt.png" />
+                        </div>-->
+            <div class="main-title">
+                <img src="img/invite/icon.png">
+                <label>Invitar amigos a un evento</label>
+            </div>
+            <br/>
+            <br/>
+            <div class="search-form fullwidth">
+                <input name="data[User][filter]" id="search-input" type="text" placeholder="Nombre Amigo ..." style="width: 97%" />
+            </div>
+            <ul class="invitedFriends">
+                <li class="heading">
+                    AMIGOS SELECCIONADOS
+                </li>
+                <li id='invite-user-{{user.id}}'ng-repeat="user in users" class="user-search-result" user-id="{{user.id}}" user-name="{{user.name}}" user-fcid="{{user.fcid}}">
+                    <img src="{{user.fcid ==0 ? 'img/profile/change-image.png' : 'https://graph.facebook.com/' + user.fcid + '/picture?type=large'}}">
+                    {{user.name}}
+                    <span class="token-input-delete-token" ng-click="removeItem(user.id)">×</span>
+                    <input type="hidden" name="data[User][0]" value="{{user.id}}">
+                </li>
+            </ul>
+            <ul class="options face">
+                <li class="invite-facebook" ng-click="inviteFBEvent('{{selectedEvent.Event.facelink}}')">
+                    <div class="icon"> 
+                        <img src="img/facebook-icon.png" /> 
+                        Invitar Amigos
+                    </div>
+                </li>
+            </ul>
+            <div class="selectedRaceBox" ng-if="selectedEvent != null">
+                <div class="heading">
+                    Carrera Seleccionada
+                </div>
+                <ul class="options selectedRace" event-month="{{selectedEvent.Event.month}}" event-name="{{selectedEvent.Event.nombre}}">
+                    <li >
+                        <b>{{selectedEvent.Event.nombre}} </b>
+                    </li>
+                    <li class="delete" ng-click="deselectRace()">
+                        Deseleccionar
+                    </li>
+                </ul>
+            </div>
+            <ul class="options" style="padding: 0">
+                <li class="select" ng-click="selectRace()">
+                    Escoger Carrera
+                </li>
+                <li class="green" ng-click="sendInvitation()">
+                    Enviar Invitacion
+                </li>
+            </ul>
+        </div>
+    </ion-content>
+</div>
+
+
