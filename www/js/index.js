@@ -49,6 +49,9 @@ var app = {
             this.actionFrontQuote = true;
             action.call();
             this.actionFrontQuote = false;
+        } else {
+            history.back();
+            homeApp.hideMenu();
         }
     },
     goBack: function () {
@@ -106,8 +109,11 @@ var app = {
                 $('.toggle-push-left').trigger('tap');
         });
     },
-    showLoading: function () {
+    showLoading: function (text) {
         $('#loading-overlay').addClass('show');
+        if (!$.isEmptyObject(text)) {
+            $('#loading-overlay .message').text(text);
+        }
     },
     hideLoading: function () {
         $('#loading-overlay').removeClass('show');

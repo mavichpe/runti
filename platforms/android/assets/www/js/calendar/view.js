@@ -128,8 +128,7 @@ var CalendarViewApp = {
             CalendarViewApp.moveOtherItem(height, mapa);
         }
     }
-    ,
-    showEventInfo: function (kind, eventId) {
+    , showEventInfo: function (kind, eventId) {
         if ($('.event-clickable[event-id="' + eventId + '"]').hasClass('showMenu')) {
             kind = $('.event-clickable[event-id="' + eventId + '"] .event-menu .' + kind);
             if (!kind.hasClass('active')) {

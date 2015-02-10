@@ -17,7 +17,8 @@ var ImageUploadApp = {
             targetWidth: 1024,
             targetHeight: 1024,
             destinationType: app.destinationType.FILE_URI,
-            saveToPhotoAlbum: true
+            saveToPhotoAlbum: true,
+            correctOrientation: true
         });
     },
     getPhoto: function () {

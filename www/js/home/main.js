@@ -5,16 +5,16 @@
  */
 
 var homeApp = {
-    initialize: function() {
+    initialize: function () {
         homeApp.bindEvents();
         homeApp.showHome();
     },
     menuItemTween: {},
-    bindEvents: function() {
-        Hammer($('.event-menu li')).on('tap', function() {
+    bindEvents: function () {
+        Hammer($('.event-menu li')).on('tap', function () {
             homeApp.showEventInfo($(this));
         });
-        Hammer($('.event-clickable')).on('tap', function() {
+        Hammer($('.event-clickable')).on('tap', function () {
             if (!$(this).hasClass('showMenu')) {
                 $('.event-clickable').removeClass('showMenu');
                 $('.event-menu-content').removeClass('showContent');
@@ -24,7 +24,7 @@ var homeApp = {
                 $(this).addClass('showMenu');
             }
         });
-        Hammer($('.mapa-index li')).on('tap', function() {
+        Hammer($('.mapa-index li')).on('tap', function () {
             if (!$(this).hasClass('showMenu')) {
                 $('.event-clickable').removeClass('showMenu');
                 $('.event-menu-content').removeClass('showContent');
@@ -40,7 +40,7 @@ var homeApp = {
          homeApp.hideMenu();
          });*/
     },
-    showEventInfo: function(kind) {
+    showEventInfo: function (kind) {
         if (!kind.hasClass('active')) {
             kind.parent().find('li.active').removeClass('active');
             kind.addClass('active');
@@ -60,13 +60,17 @@ var homeApp = {
 
         }
     },
-    showHome: function() {
+    showHome: function () {
         app.showToolbar();
         app.isMenuAble = true;
     },
-    hideMenu: function() {
-        classie.remove(document.body, activeNav);
-        activeNav = "";
-        document.body.removeChild(document.querySelector('.mask'));
+    hideMenu: function () {
+        try {
+            classie.remove(document.body, activeNav);
+            activeNav = "";
+            document.body.removeChild(document.querySelector('.mask'));
+        } catch (err) {
+
+        }
     }
 }

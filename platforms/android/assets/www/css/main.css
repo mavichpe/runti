@@ -124,29 +124,54 @@ ion-footer-bar.bar {
 .theme1 .next-events > li .event-title {
   background-color: #4096CE !important;
   /* Old browsers */ }
+  .theme1 .themecolor,
+  .theme1 .current-theme .themecolor,
+  .theme1 .next-events > li .event-title .themecolor {
+    color: #4096CE;
+    /* Old browsers */ }
 
 .theme2,
 .theme2 .current-theme,
 .theme2 .next-events > li .event-title {
   background-color: #FDB835 !important;
   /* Old browsers */ }
+  .theme2 .themecolor,
+  .theme2 .current-theme .themecolor,
+  .theme2 .next-events > li .event-title .themecolor {
+    color: #FDB835;
+    /* Old browsers */ }
 
 .theme3,
 .theme3 .current-theme,
 .theme3 .next-events > li .event-title {
   background-color: #E44855 !important;
   /* Old browsers */ }
+  .theme3 .themecolor,
+  .theme3 .current-theme .themecolor,
+  .theme3 .next-events > li .event-title .themecolor {
+    color: #E44855;
+    /* Old browsers */ }
 
 .theme4,
 .theme4 .current-theme,
 .theme4 .next-events > li .event-title {
   background-color: #6FC281 !important;
   /* Old browsers */ }
+  .theme4 .themecolor,
+  .theme4 .current-theme .themecolor,
+  .theme4 .next-events > li .event-title .themecolor {
+    color: #6FC281;
+    /* Old browsers */ }
 
 .theme5,
 .theme5 .current-theme,
 .theme5 .next-events > li .event-title {
   background-color: #7CA2B8 !important; }
+  .theme5 .themecolor,
+  .theme5 .current-theme .themecolor,
+  .theme5 .next-events > li .event-title .themecolor {
+    color: #7CA2B8;
+    /* Old browsers */ }
 
 .theme1color {
   color: #4096CE;
@@ -333,12 +358,13 @@ h2 {
   transition: 0.7s all;
   -webkit-transition: 0.7s all;
   -moz-transition: 0.7s all; }
-  #loading-overlay .mensaje {
+  #loading-overlay .message {
     color: #fff;
     text-align: center;
     font-size: 40px;
     max-width: 80%;
-    margin: 0 auto; }
+    margin: 110px auto 0;
+    font-weight: bold; }
   #loading-overlay.show {
     opacity: 1;
     z-index: 99; }
@@ -1351,6 +1377,8 @@ h2 {
       width: 60px;
       float: left; }
 
+#template .main-container {
+  overflow: hidden; }
 #template .template-options li {
   width: 18%;
   height: 110px;
@@ -2457,5 +2485,9 @@ h2 {
   #friends .request .heading {
     margin-left: 45px;
     max-width: 250px; } }
+#accordion.full-view, .full-view {
+  overflow: visible !important; }
+  #accordion.full-view div, .full-view div {
+    overflow: visible !important; }
 
 /*# sourceMappingURL=main.css.map */

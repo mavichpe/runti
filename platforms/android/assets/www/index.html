@@ -185,14 +185,11 @@ and open the template in the editor.
                                 document.addEventListener("backbutton", onBackKeyDown, false);
                         }, false);
                                 function onBackKeyDown() {
+                                if (location.hash != '#/' || location.hash != '#/login' || location.hash != '#/home') {
+                                app.goBack();
+                                }
                                 e.preventDefault();
                                         return false;
-//                                if (location.hash == '#/' || location.hash == '#/login' || location.hash == '#/home') {
-//                                navigator.app.exitApp();
-//                                } else {
-//                                navigator.app.backHistory();
-//                                        e.preventDefault();
-//                                }
                                 }
                         $(function() {
                         if (!window.cordova) {

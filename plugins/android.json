@@ -107,10 +107,6 @@
                         {
                             "xml": "<feature name=\"InAppBrowser\"><param name=\"android-package\" value=\"org.apache.cordova.inappbrowser.InAppBrowser\" /></feature>",
                             "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"SocialSharing\"><param name=\"android-package\" value=\"nl.xservices.plugins.SocialSharing\" /></feature>",
-                            "count": 1
                         }
                     ]
                 }
@@ -152,10 +148,6 @@
                         },
                         {
                             "xml": "<uses-permission android:name=\"com.coolappz.runti.permission.C2D_MESSAGE\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:maxSdkVersion=\"18\" android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
                             "count": 1
                         }
                     ],
@@ -327,9 +319,6 @@
             "PACKAGE_NAME": "com.coolappz.runti"
         },
         "org.apache.cordova.inappbrowser": {
-            "PACKAGE_NAME": "com.runti"
-        },
-        "nl.x-services.plugins.socialsharing": {
             "PACKAGE_NAME": "com.runti"
         }
     },

@@ -33,27 +33,41 @@ ion-footer-bar.bar{
 .theme1 .current-theme,
 .theme1 .next-events > li .event-title{
     background-color: #4096CE !important; /* Old browsers */
+    .themecolor{ 
+        color: #4096CE; /* Old browsers */
+    }
 }
 .theme2,
 .theme2 .current-theme,
 .theme2 .next-events > li .event-title{
     background-color: #FDB835 !important;  /* Old browsers */
+    .themecolor{ 
+        color: #FDB835; /* Old browsers */
+    }
 }
 .theme3,
 .theme3 .current-theme,
 .theme3 .next-events > li .event-title{
-
     background-color: #E44855 !important; /* Old browsers */
+    .themecolor{ 
+        color: #E44855; /* Old browsers */
+    }
 }
 .theme4,
 .theme4 .current-theme,
 .theme4 .next-events > li .event-title{
     background-color: #6FC281 !important; /* Old browsers */
+    .themecolor{ 
+        color: #6FC281; /* Old browsers */
+    }
 }
 .theme5,
 .theme5 .current-theme,
 .theme5 .next-events > li .event-title{
     background-color: #7CA2B8 !important; 
+    .themecolor{ 
+        color: #7CA2B8; /* Old browsers */
+    }
 }
 .theme1color{ 
     color: #4096CE; /* Old browsers */
@@ -249,12 +263,13 @@ h2{
     opacity: 0;
     background: rgba(0, 0, 0, 0.68);
     @include set-transition(0.7s all);
-    .mensaje{
+    .message{
         color: #fff;
         text-align: center;
         font-size: 40px;
         max-width: 80%;
-        margin: 0 auto;
+        margin: 110px auto 0;
+        font-weight: bold;
     }
     &.show{
         opacity: 1;
@@ -1393,6 +1408,9 @@ h2{
 
 }
 #template{
+    .main-container{
+        overflow: hidden;
+    }
     .template-options{
         li{
             width: 18%;
@@ -2850,4 +2868,9 @@ h2{
     }
 }
 
-
+#accordion.full-view, .full-view{
+    overflow: visible !important;
+    div{
+        overflow: visible !important;
+    }
+}

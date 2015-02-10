@@ -60,6 +60,9 @@ var backend = {
                     backend.saveRegId(localStorageService);
                 }
             },
+            complete: function () {
+                app.hideLoading();
+            }
         });
     },
     saveRegId: function (localStorageService) {
@@ -172,6 +175,7 @@ var backend = {
         return $scope.user;
     },
     setUserData: function (userData, message, localStorageService, redirect) {
+        app.showLoading('Guardando informacion');
         $.ajax({
             type: 'POST',
             async: false,
@@ -181,16 +185,19 @@ var backend = {
             success: function (data) {
                 if (data.store) {
                     // alert(message.success);
-                    localStorageService.set('userTemplate', data.datos.User.template);
+                    if (!$.isEmptyObject(data.datos.User.template)) {
+                        localStorageService.set('userTemplate', data.datos.User.template);
+                    }
                     if (redirect)
                         location.href = "#/home";
                 }
                 else
                     alert(message.fail);
             },
-//            complete: function (dat, dat2, dat3) {
+            complete: function (dat, dat2, dat3) {
 //                alert(dat);
-//            }
+                app.hideLoading();
+            }
         });
     },
     uploadImage: function (data) {

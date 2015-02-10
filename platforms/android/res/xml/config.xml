@@ -71,9 +71,6 @@
     <feature name="InAppBrowser">
         <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
     </feature>
-    <feature name="SocialSharing">
-        <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
-    </feature>
     <name>Runti</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.

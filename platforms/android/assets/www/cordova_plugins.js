@@ -311,13 +311,6 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/nl.x-services.plugins.socialsharing/www/SocialSharing.js",
-        "id": "nl.x-services.plugins.socialsharing.SocialSharing",
-        "clobbers": [
-            "window.plugins.socialsharing"
-        ]
-    },
-    {
         "file": "plugins/org.apache.cordova.file/www/DirectoryEntry.js",
         "id": "org.apache.cordova.file.DirectoryEntry",
         "clobbers": [
@@ -488,7 +481,6 @@ module.exports.metadata =
     "de.appplant.cordova.plugin.local-notification": "0.7.6",
     "com.phonegap.plugins.PushPlugin": "2.4.0",
     "org.apache.cordova.inappbrowser": "0.5.5-dev",
-    "nl.x-services.plugins.socialsharing": "4.3.13",
     "org.apache.cordova.file": "1.3.1"
 }
 // BOTTOM OF METADATA

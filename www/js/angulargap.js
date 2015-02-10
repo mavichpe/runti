@@ -77,6 +77,7 @@ angulargap.controller("LoginController", ['$scope', 'localStorageService', funct
             location.href = '#/home';
         };
         $scope.fblogin = function () {
+            app.showLoading();
             facebookConnectPlugin.login(["email,publish_actions,public_profile,user_friends,read_friendlists"],
                     function (userData) {
                         facebookConnectPlugin.api(userData.authResponse.userID + "/", ["public_profile"],
@@ -93,11 +94,13 @@ angulargap.controller("LoginController", ['$scope', 'localStorageService', funct
                                     backend.fblogin(user, localStorageService);
                                 },
                                 function (error) {
-                                    alert("Failed: " + error);
+                                    alert("Error: " + error);
+                                    app.hideLoading();
                                 });
                     },
                     function (error) {
                         alert("" + error);
+                        app.hideLoading();
                     }
             );
         };
@@ -214,7 +217,7 @@ angulargap.controller("CalendarSelectViewController", ['$scope', '$routeParams',
             app.pushEventToQuote(funcPath);
         });
     }]);
-angulargap.controller("CalendarViewController", ['$scope', '$routeParams', 'localStorageService', function ($scope, $routeParams, localStorageService) {
+angulargap.controller("CalendarViewController", ['$scope', '$routeParams', 'localStorageService', '$ionicScrollDelegate', function ($scope, $routeParams, localStorageService, $ionicScrollDelegate) {
         app.beforeRender($scope, localStorageService);
         var month = $routeParams.month;
         $scope.mes = CalendarViewApp.months[month];
@@ -243,8 +246,16 @@ angulargap.controller("CalendarViewController", ['$scope', '$routeParams', 'loca
             '11': 'NOV',
             '12': 'DIC',
         };
+        $scope.showOptions = function (item, eventId) {
+            setTimeout(function () {
+                $ionicScrollDelegate.scrollBottom(true);
+            }, 600);
+        };
         $scope.showSubMenu = function (item, eventId) {
             CalendarViewApp.showEventInfo(item, eventId);
+            setTimeout(function () {
+                $ionicScrollDelegate.scrollBottom(true);
+            }, 600);
         };
         $scope.showMapa = function (idMapa) {
             CalendarViewApp.showMapa(idMapa);
@@ -1250,6 +1261,7 @@ angulargap.controller("MainMenuController", ['$scope', '$location', 'localStorag
                     }
                 }
                 if (gotoPage) {
+                    app.actionQuote = new Array();
                     app.pushEventToQuote('events.right()');
                     setTimeout(function () {
                         location.href = '#' + link;
