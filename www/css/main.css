@@ -712,7 +712,9 @@ h2 {
     text-align: left;
     padding-top: 15px;
     padding-bottom: 10px;
-    line-height: 16px; }
+    line-height: 16px;
+    background-size: 66px;
+    background-position: -3px center; }
     .main-menu .invite a {
       line-height: 16px;
       padding-top: 10px;
@@ -758,7 +760,9 @@ h2 {
     padding-top: 5px;
     padding-bottom: 5px;
     background-size: 46px;
-    text-align: left; }
+    text-align: left;
+    padding-left: 70px;
+    background-size: 64px; }
   .main-menu .spotify {
     background: url("../img/menu/spotify.png") no-repeat 15px center;
     padding-left: 60px;
@@ -793,6 +797,13 @@ h2 {
       padding-bottom: 10px; }
   .main-menu .logout {
     background: url("../img/menu/close.png") no-repeat 15px center;
+    padding-left: 60px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-size: 46px;
+    text-align: left; }
+  .main-menu .login {
+    background: url("../img/menu/login.png") no-repeat 15px center;
     padding-left: 60px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -1356,7 +1367,9 @@ h2 {
   background: #000;
   overflow: hidden;
   clear: both;
-  margin-bottom: 5px; }
+  margin-bottom: 5px;
+  border: 1px solid #fff;
+  border-radius: 9px; }
   .input-container label {
     float: left;
     display: block;

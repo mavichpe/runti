@@ -6,9 +6,9 @@
                         </div>-->
             <h2> Eventos {{mes}}</h2>
             <ul class="next-events" id="accordion" >
-                <li class="event-clickable" event-id="{{event.Event.id}}" ng-repeat="event in events">
+                <li class="event-clickable" event-id="{{event.Event.id}}"  ng-init="isLastEvent = $last" ng-repeat="event in events">
                     <div class="option-title">
-                        <div class="event-title" ng-click="showOptions()">
+                        <div class="event-title" ng-click="showOptions($last)">
                             <div class="title">
                                 <table>
                                     <tr>
@@ -28,7 +28,7 @@
                     <div class="event-wrap">
                         <div class="event-menu"   style="">
                             <ul>
-                                <li class="{{menuItem.class}}" kind="{{menuItem.class}}" ng-click="showSubMenu('{{menuItem.class}}', {{event.Event.id}})" ng-repeat="menuItem in eventMenuItem">
+                                <li class="{{menuItem.class}}" kind="{{menuItem.class}}" ng-click="showSubMenu('{{menuItem.class}}', {{event.Event.id}},isLastEvent)" ng-repeat="menuItem in eventMenuItem">
                                     <i></i>
                                     {{menuItem.title}} 
                                 </li>

@@ -55,6 +55,10 @@
                         {
                             "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SocialSharing\"><param name=\"ios-package\" value=\"SocialSharing\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -70,7 +74,7 @@
                     "Social.framework": [
                         {
                             "xml": "true",
-                            "count": 1
+                            "count": 2
                         }
                     ],
                     "Accounts.framework": [
@@ -85,7 +89,12 @@
                             "count": 1
                         }
                     ],
-                    "MessageUI.framework": [],
+                    "MessageUI.framework": [
+                        {
+                            "xml": "true",
+                            "count": 1
+                        }
+                    ],
                     "CoreGraphics.framework": [
                         {
                             "xml": "false",
@@ -134,6 +143,9 @@
             "PACKAGE_NAME": "com.runti"
         },
         "org.apache.cordova.inappbrowser": {
+            "PACKAGE_NAME": "com.runti"
+        },
+        "nl.x-services.plugins.socialsharing": {
             "PACKAGE_NAME": "com.runti"
         }
     },

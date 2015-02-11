@@ -61,6 +61,8 @@
 		CBC272563D75498591394FF2 /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C26EDE679F408AB8790C66 /* CDVDevice.m */; };
 		5C60C373654B4B9C9E88DF63 /* APPLocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F314EC838D423A8C32F72E /* APPLocalNotification.m */; };
 		2C038B60BCE345D1A0D0EB17 /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8125E7DF466049BCA7A80D31 /* CDVInAppBrowser.m */; };
+		9EF83892FA1744D78586DF2D /* SocialSharing.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEBD2B96061401081FC253B /* SocialSharing.m */; };
+		FE6A47646B40498597879E54 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CEDFDE6E9FE4286B24EF249 /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +164,9 @@
 		3B1059051A654A069FCA13D8 /* APPLocalNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "APPLocalNotification.h"; path = "de.appplant.cordova.plugin.local-notification/APPLocalNotification.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		8125E7DF466049BCA7A80D31 /* CDVInAppBrowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVInAppBrowser.m"; path = "org.apache.cordova.inappbrowser/CDVInAppBrowser.m"; sourceTree = "<group>"; fileEncoding = 4; };
 		BC6B60DEAEFF46109F2EA23B /* CDVInAppBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVInAppBrowser.h"; path = "org.apache.cordova.inappbrowser/CDVInAppBrowser.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		CDEBD2B96061401081FC253B /* SocialSharing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "SocialSharing.m"; path = "nl.x-services.plugins.socialsharing/SocialSharing.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		1003FEB56EF343FB9AE7D27D /* SocialSharing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SocialSharing.h"; path = "nl.x-services.plugins.socialsharing/SocialSharing.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		9CEDFDE6E9FE4286B24EF249 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "MessageUI.framework"; path = "System/Library/Frameworks/MessageUI.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +183,7 @@
 				872923588DEC4840B48AAC1D /* Social.framework in Frameworks */,
 				30E09D41751645FD8D68000D /* Accounts.framework in Frameworks */,
 				F82F060FA9814B08A9DE2E34 /* Security.framework in Frameworks */,
+				FE6A47646B40498597879E54 /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +266,7 @@
 				B8A70CD75BE242B3A9BFB004 /* Social.framework */,
 				640537AAA7D140BAA9C4C934 /* Accounts.framework */,
 				EC08752D9EA64150A7D8F027 /* Security.framework */,
+				9CEDFDE6E9FE4286B24EF249 /* MessageUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -301,6 +308,8 @@
 				3B1059051A654A069FCA13D8 /* APPLocalNotification.h */,
 				8125E7DF466049BCA7A80D31 /* CDVInAppBrowser.m */,
 				BC6B60DEAEFF46109F2EA23B /* CDVInAppBrowser.h */,
+				CDEBD2B96061401081FC253B /* SocialSharing.m */,
+				1003FEB56EF343FB9AE7D27D /* SocialSharing.h */,
 			);
 			name = Plugins;
 			path = "runti/Plugins";
@@ -502,6 +511,7 @@
 				CBC272563D75498591394FF2 /* CDVDevice.m in Sources */,
 				5C60C373654B4B9C9E88DF63 /* APPLocalNotification.m in Sources */,
 				2C038B60BCE345D1A0D0EB17 /* CDVInAppBrowser.m in Sources */,
+				9EF83892FA1744D78586DF2D /* SocialSharing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

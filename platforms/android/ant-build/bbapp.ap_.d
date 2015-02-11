@@ -502,6 +502,7 @@
 /Applications/XAMPP/xamppfiles/htdocs/runti/platforms/android/assets/www/plugins/com.phonegap.plugins.PushPlugin \
 /Applications/XAMPP/xamppfiles/htdocs/runti/platforms/android/assets/www/plugins/com.synconset.imagepicker \
 /Applications/XAMPP/xamppfiles/htdocs/runti/platforms/android/assets/www/plugins/de.appplant.cordova.plugin.local-notification \
+/Applications/XAMPP/xamppfiles/htdocs/runti/platforms/android/assets/www/plugins/nl.x-services.plugins.socialsharing \
 /Applications/XAMPP/xamppfiles/htdocs/runti/platforms/android/assets/www/plugins/org.apache.cordova.battery-status \
 /Applications/XAMPP/xamppfiles/htdocs/runti/platforms/android/assets/www/plugins/org.apache.cordova.camera \
 /Applications/XAMPP/xamppfiles/htdocs/runti/platforms/android/assets/www/plugins/org.apache.cordova.contacts \
@@ -529,6 +530,8 @@
 /Applications/XAMPP/xamppfiles/htdocs/runti/platforms/android/assets/www/plugins/com.synconset.imagepicker/www/imagepicker.js \
 /Applications/XAMPP/xamppfiles/htdocs/runti/platforms/android/assets/www/plugins/de.appplant.cordova.plugin.local-notification/www \
 /Applications/XAMPP/xamppfiles/htdocs/runti/platforms/android/assets/www/plugins/de.appplant.cordova.plugin.local-notification/www/local-notification.js \
+/Applications/XAMPP/xamppfiles/htdocs/runti/platforms/android/assets/www/plugins/nl.x-services.plugins.socialsharing/www \
+/Applications/XAMPP/xamppfiles/htdocs/runti/platforms/android/assets/www/plugins/nl.x-services.plugins.socialsharing/www/SocialSharing.js \
 /Applications/XAMPP/xamppfiles/htdocs/runti/platforms/android/assets/www/plugins/org.apache.cordova.battery-status/www \
 /Applications/XAMPP/xamppfiles/htdocs/runti/platforms/android/assets/www/plugins/org.apache.cordova.battery-status/www/battery.js \
 /Applications/XAMPP/xamppfiles/htdocs/runti/platforms/android/assets/www/plugins/org.apache.cordova.camera/www \

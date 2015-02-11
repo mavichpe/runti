@@ -75,6 +75,8 @@ angulargap.controller("LoginController", ['$scope', 'localStorageService', funct
             localStorageService.set('currentUserId', 0);
             localStorageService.set('userTemplate', 1);
             location.href = '#/home';
+            $('.main-menu .login').show();
+            $('.main-menu .logout').hide();
         };
         $scope.fblogin = function () {
             app.showLoading();
@@ -246,16 +248,20 @@ angulargap.controller("CalendarViewController", ['$scope', '$routeParams', 'loca
             '11': 'NOV',
             '12': 'DIC',
         };
-        $scope.showOptions = function (item, eventId) {
-            setTimeout(function () {
-                $ionicScrollDelegate.scrollBottom(true);
-            }, 600);
+        $scope.showOptions = function (isLast) {
+            if (isLast) {
+                setTimeout(function () {
+                    $ionicScrollDelegate.scrollBottom(true);
+                }, 600);
+            }
         };
-        $scope.showSubMenu = function (item, eventId) {
+        $scope.showSubMenu = function (item, eventId, isLastEvent) {
             CalendarViewApp.showEventInfo(item, eventId);
-            setTimeout(function () {
-                $ionicScrollDelegate.scrollBottom(true);
-            }, 600);
+            if (isLastEvent) {
+                setTimeout(function () {
+                    $ionicScrollDelegate.scrollBottom(true);
+                }, 600);
+            }
         };
         $scope.showMapa = function (idMapa) {
             CalendarViewApp.showMapa(idMapa);

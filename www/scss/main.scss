@@ -644,6 +644,8 @@ h2{
         padding-top: 15px;
         padding-bottom: 10px;
         line-height: 16px;
+        background-size: 66px;
+        background-position: -3px center;
         a{
             line-height: 16px;
             padding-top: 10px;
@@ -667,6 +669,8 @@ h2{
     }
     .notification{
         @include addMenuItem(notification);
+        padding-left: 70px;
+        background-size: 64px;
     }
     .spotify{
         @include addMenuItem(spotify);
@@ -687,6 +691,9 @@ h2{
     }
     .logout{
         @include addMenuItem(close);
+    }
+    .login{
+        @include addMenuItem(login);
     }
     .news{
         @include addMenuItem(news);
@@ -1382,6 +1389,8 @@ h2{
     overflow:hidden;
     clear:both;
     margin-bottom: 5px;
+    border: 1px solid #fff;
+    border-radius: 9px;
     label{
         float: left;
         display: block;

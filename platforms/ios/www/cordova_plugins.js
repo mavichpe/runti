@@ -36,6 +36,13 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/nl.x-services.plugins.socialsharing/www/SocialSharing.js",
+        "id": "nl.x-services.plugins.socialsharing.SocialSharing",
+        "clobbers": [
+            "window.plugins.socialsharing"
+        ]
+    },
+    {
         "file": "plugins/org.apache.cordova.device/www/device.js",
         "id": "org.apache.cordova.device.device",
         "clobbers": [
@@ -51,6 +58,7 @@ module.exports.metadata =
     "com.synconset.imagepicker": "1.0.4",
     "de.appplant.cordova.plugin.local-notification": "0.7.6",
     "org.apache.cordova.inappbrowser": "0.5.5-dev",
+    "nl.x-services.plugins.socialsharing": "4.3.13",
     "org.apache.cordova.device": "0.2.13-dev"
 }
 // BOTTOM OF METADATA
