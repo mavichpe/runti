@@ -4,21 +4,20 @@
             <!--            <div class="back-bt" onclick="app.goBack();">
                             <img src="img/back-bt.png" />
                         </div>-->
-            <div class="main-title">
+            <div class="page-icon">
                 <img src="img/notifications/icon.png">
-                <label>Notificar Carrera</label>
             </div>
             <div class="clearfix"></div>
-            <br/>
-            <br/>
-            <div class="heading">
-                HAZ UNA LISTA DE CARRERA
-                O  CARRERAS QUE DESEAS
-                HACER Y RUNTI TE LAS NOTIFICARÁ
+            <div class="text-box">
+                Haz una lista de carrera o carreras 
+                que deseas correr y Runti te enviará
+                una notificación
             </div>
+            <br/>
+
             <ul class="options" style="padding: 0">
-                <li class="" ng-click="selectRace()">
-                    Escoger Carrera
+                <li class="red" ng-click="selectRace()">
+                    <b> Escoger Carrera</b>
                 </li>
             </ul>
 
@@ -82,18 +81,20 @@
                 </ul>
             </div>
             <div class="clearfix"></div>
-            <br/>
             <hr />
-            <ul class="options" style="padding-top: 15px 0;">
-                <li style="margin-bottom: 0">Lista de Notificaciones</li>
-            </ul>
+            <br/>
+            <br/>
+
+            <div class="text-box center ">
+                <b>Lista de Notificaciones</b>
+            </div>
 
             <div class='notificaciones'>
-                <div class="heading" id='alert-{{alert.Alert.id}}' ng-repeat="alert in alerts">
+                <div class="heading white" id='alert-{{alert.Alert.id}}' ng-repeat="alert in alerts">
                     <div class="delete" ng-click="cancelarAlerta(alert.Alert.id)">x</div>
 
                     <div class="title">
-                        {{alert.Alert.title}}
+                        <b>  {{alert.Alert.title}}</b>
                     </div>     
                     <div ng-bind-html="formatDate(alert.Alert.date)"></div>
                 </div>

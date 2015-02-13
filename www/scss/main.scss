@@ -136,6 +136,20 @@ b{
     padding: 10px 0;
     margin-top: 20px;
 }
+.std-button.green{
+    background: #00A559;
+    color: #fff;
+}
+.page-icon{
+    width: 100%;
+    padding-bottom: 20px;
+    img{
+        height: 100px;
+        width: auto;
+        display: block;
+        margin: 0 auto;
+    }
+}
 
 .white-logo{
     img{ 
@@ -1292,10 +1306,6 @@ h2{
         border-radius: 5px;
         text-align: center;
     }
-    .selected{
-        background: #32B446;
-        color: #fff;
-    }
     .change-image{
         img{ 
             border-radius: 50%;
@@ -1384,13 +1394,13 @@ h2{
     }
 }
 .input-container{
-    padding: 2px;
-    background: #000;
-    overflow:hidden;
-    clear:both;
+    padding: 5px 2px;
+    overflow: hidden;
+    clear: both;
     margin-bottom: 5px;
     border: 1px solid #fff;
     border-radius: 9px;
+    line-height: 28px;
     label{
         float: left;
         display: block;
@@ -1406,33 +1416,37 @@ h2{
         padding: 5px;
         width: 50%;
         background: #fff;
+        border-radius: 3px;
     }
     .date-fields{
         float:right;
         .nacimiento{
             width: 60px;
             float: left;
+            padding: 2px;
         }
     }
 
 }
 #template{
+    form{
+        text-transform: none;
+    }
     .main-container{
         overflow: hidden;
     }
     .template-options{
         li{
-            width: 18%;
-            height: 110px;
-            margin: 10px 1%; 
+            width: 48%;
+            height: 40px;
+            margin: 5px 1%;
             display: block;
             float: left;
             a{
                 display: block;
-                width: 100px;
-                height: 100px;
-                border-radius: 50%;
-                margin: 0 auto;
+                width: 100%;
+                border-radius: 5px;
+                height: 100%;
             }
             a.current{
                 border: 3px solid #C9C9C9;
@@ -1453,6 +1467,19 @@ h2{
         .setTemplate5{
             background: #f9a44f;
         }
+    }
+}
+.text-box{
+    padding: 10px 5px;
+    border: 1px solid #fff;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    position: relative;
+    border-radius: 5px;
+    text-transform: none;
+    &.center{
+        text-align: center;
     }
 }
 
@@ -1670,6 +1697,10 @@ h2{
         margin-bottom: 20px;
         border-radius: 10px;
         text-transform: uppercase;
+        &.red{
+            background: #EE111E;
+            color: #fff;
+        }
     }
     .delete{
         margin-top: -20px;
@@ -2299,6 +2330,19 @@ h2{
     }
 }
 
+.delete-icon{
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    background: #EB1C3D;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    font-size: 23px;
+    font-weight: bold;
+}
+
 #notification{
     .main-title{
         width: 250px;
@@ -2373,22 +2417,19 @@ h2{
             .title{
                 font-weight: bold;
                 padding-bottom: 3px;
+                font-size: 17px;
             }
             .delete{
-                position: absolute;
-                right: -10px;
-                top: -10px;
-                background: #EB1C3D;
-                width: 30px;
-                height: 30px;
-                line-height: 30px;
-                border-radius: 50%;
-                font-size: 23px;
-                font-weight: bold;
+                @extend .delete-icon;
+            }
+            &.white{
+                background: #D0D2D4;
+                color: #000;
             }
         }
     }
 }
+
 .fullwidth{
     width: 98% !important;
     margin: 0 auto;
@@ -2701,12 +2742,6 @@ h2{
             margin: 0 auto;
         }
     }
-    #template .template-options li {
-        width: 31%;
-    }
-    #template .template-options li:nth-child(4) {
-        margin-left: 15%;
-    }
     #invite  .invitedFriends li{
         width: 100%;
     }
@@ -2874,6 +2909,9 @@ h2{
             margin-left: 45px;
             max-width: 250px;
         }
+    }
+    .text-box{
+        max-width: 300px;
     }
 }
 
