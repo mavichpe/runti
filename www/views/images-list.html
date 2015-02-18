@@ -4,15 +4,15 @@
             <div class="back-bt" onclick="app.goBack();">
                 <img src="img/back-bt.png" />
             </div>
-            <div class="main-title">
+            <div class="page-icon">
                 <img src="img/images/icon.png">
-                <label>Fotos</label>
             </div>
             <div style="margin: 15px auto 0px;
                  overflow: hidden;
                  clear: both;">
+                <br/>
                 <ul class="options" ng-show="!hideUpload">
-                    <li  ng-click="goToUpload()">
+                    <li class="std-button ligth-blue"  ng-click="goToUpload()">
                         Subir fotos
                     </li>
                 </ul>
@@ -23,7 +23,7 @@
             <li class="event-clickable" ng-show="!images.length">
                 <div class="event-title ">
                     <div class="button button-secondary no-image-title">
-                        Aun no se ha subido ninguna imagen
+                        No has subido imagenes
                     </div>
                 </div>
             </li>

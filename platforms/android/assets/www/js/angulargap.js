@@ -75,6 +75,8 @@ angulargap.controller("LoginController", ['$scope', 'localStorageService', funct
             localStorageService.set('currentUserId', 0);
             localStorageService.set('userTemplate', 1);
             location.href = '#/home';
+            $('.main-menu .login').show();
+            $('.main-menu .logout').hide();
         };
         $scope.fblogin = function () {
             app.showLoading();
@@ -933,6 +935,12 @@ angulargap.controller("SendinviteController", ['$scope', '$routeParams', 'localS
         $scope.$on('$viewContentLoaded', function () {
             InviteApp.initialize();
         });
+        $scope.addFriends = function () {
+            $('.search-wrapper .search-form').addClass('show');
+        }
+        $scope.hideAddFriend = function () {
+            $('.search-wrapper .search-form').removeClass('show');
+        }
         $scope.removeItem = function (item) {
             $('#invite-user-' + item).remove();
             var users = InviteApp.getUserList();

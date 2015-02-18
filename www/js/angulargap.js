@@ -935,6 +935,20 @@ angulargap.controller("SendinviteController", ['$scope', '$routeParams', 'localS
         $scope.$on('$viewContentLoaded', function () {
             InviteApp.initialize();
         });
+        $scope.closePopup = function () {
+            $('.app-popup').removeClass('show');
+        }
+        $scope.addFriends = function () {
+            var eventName = $(".options.selectedRace").attr("event-name");
+            if (eventName == null) {
+                $('.app-popup').addClass('show');
+                return;
+            }
+            $('.search-wrapper .search-form').addClass('show');
+        }
+        $scope.hideAddFriend = function () {
+            $('.search-wrapper .search-form').removeClass('show');
+        }
         $scope.removeItem = function (item) {
             $('#invite-user-' + item).remove();
             var users = InviteApp.getUserList();
@@ -982,351 +996,353 @@ angulargap.controller("SendinviteController", ['$scope', '$routeParams', 'localS
                 localStorageService.remove('selectedEvent');
                 localStorageService.remove('userlist-invite');
                 localStorageService.remove('selectedEvent');
+                $('.sended').show();
+                $('.selected-friends').remove();
                 $('.selectedRaceBox').remove();
-                $('.invitedFriends .user-search-result').remove();
-            } else
-                alert('No ha sido posible enviar tus invitaciones');
+            $('.invitedFriends .user-search-result').remove();
+                } else
+        alert('No ha sido posible enviar tus invitaciones');
         };
-        $scope.inviteFBEvent = function (facelink) {
+            $scope.inviteFBEvent = function (facelink) {
             var eventName = $(".options.selectedRace").attr("event-name");
-            if (eventName == null) {
-                alert('Por favor seleccione una carrera');
-                return;
+                if (eventName == null) {
+                $('.app-popup').addClass('show');
+            return;
             }
-            facebookConnectPlugin.showDialog({method: 'share',
+                facebookConnectPlugin.showDialog({method: 'share',
                 message: 'Invitacion a carrera',
-                href: facelink
-            }, function (response) {
-                console.log(response);
-            }, function (response) {
-                console.log(response);
-            });
-        };
-        $scope.$on('$routeChangeStart', function (events, next, current) {
-            funcPath = "location.href = '#" + current.$$route.originalPath + "'";
-            app.pushEventToQuote(funcPath);
+            href: facelink
+                }, function (response) {
+            console.log(response);
+                }, function (response) {
+            console.log(response);
         });
-    }]);
-angulargap.controller("NotificationController", ['$scope', '$routeParams', 'localStorageService', '$sce', function ($scope, $routeParams, localStorageService, $sce) {
+        };
+            $scope.$on('$routeChangeStart', function (events, next, current) {
+            funcPath = "location.href = '#" + current.$$route.originalPath + "'";
+        app.pushEventToQuote(funcPath);
+    });
+}]);
+        angulargap.controller("NotificationController", ['$scope', '$routeParams', 'localStorageService', '$sce', function ($scope, $routeParams, localStorageService, $sce) {
         app.beforeRender($scope, localStorageService);
         var selectedEvent = localStorageService.get('selectedEvent');
         var currentUserId = localStorageService.get('currentUserId');
-        if (selectedEvent != null) {
+            if (selectedEvent != null) {
             selectedEvent = backend.getEventById(selectedEvent, localStorageService);
-            $scope.selectedEvent = selectedEvent;
+        $scope.selectedEvent = selectedEvent;
         }
-
+        
         $scope.today = new Date();
         $scope.anos = new Array('2014', '2015', '2016', '2017', '2018');
-        $scope.meses = {
-            '1': {
+            $scope.meses = {
+                '1': {
                 id: '01',
-                label: 'ENE'
+            label: 'ENE'
             },
-            '2': {
+                '2': {
                 id: '02',
-                label: 'FEB'},
-            '3': {
+            label: 'FEB'},
+                '3': {
                 id: '03',
-                label: 'MAR'},
-            '4': {
+            label: 'MAR'},
+                '4': {
                 id: '04',
-                label: 'ABR'},
-            '5': {
+            label: 'ABR'},
+                '5': {
                 id: '05',
-                label: 'MAY'},
-            '6': {
+            label: 'MAY'},
+                '6': {
                 id: '06',
-                label: 'JUN'},
-            '7': {
+            label: 'JUN'},
+                '7': {
                 id: '07',
-                label: 'JUL'},
-            '8': {
+            label: 'JUL'},
+                '8': {
                 id: '08',
-                label: 'AGO'},
-            '9': {
+            label: 'AGO'},
+                '9': {
                 id: '09',
-                label: 'SEP'},
-            '10': {
+            label: 'SEP'},
+                '10': {
                 id: '10',
-                label: 'OCT'},
-            '11': {
+            label: 'OCT'},
+                '11': {
                 id: '11',
-                label: 'NOV'},
-            '12': {
+            label: 'NOV'},
+                '12': {
                 id: '12',
-                label: 'DIC'},
+        label: 'DIC'},
         };
         $scope.alerts = backend.getAlerts($scope.today, currentUserId);
-        $scope.$on('$viewContentLoaded', function () {
-            NotificationApp.initialize();
+            $scope.$on('$viewContentLoaded', function () {
+        NotificationApp.initialize();
         });
-        $scope.formatDate = function (date) {
+            $scope.formatDate = function (date) {
             var fecha = new Date();
             fecha.setTime(date);
-            return $sce.trustAsHtml('Fecha de Alerta: ' + fecha.toLocaleString());
+        return $sce.trustAsHtml('Fecha de Alerta: ' + fecha.toLocaleString());
         };
-        $scope.selectRace = function () {
+            $scope.selectRace = function () {
             localStorageService.set('selectReturnPath', '#/notification');
-            location.href = "#/calendar";
+        location.href = "#/calendar";
         };
-        $scope.deselectRace = function () {
+            $scope.deselectRace = function () {
             localStorageService.remove('selectedEvent');
-            $('.selectedRaceBox').remove();
+        $('.selectedRaceBox').remove();
         };
-        $scope.setNotification = function () {
+            $scope.setNotification = function () {
             //var eventMonth = $(".options.selectedRace").attr("event-month");
-
+            
             var eventDate = new Date($(".options.selectedRace").attr("event-date"));
             var eventName = $(".options.selectedRace").attr("event-name");
-            if (eventName == null) {
+                if (eventName == null) {
                 alert('Por favor seleccione una carrera');
-                return;
+            return;
             }
             var ano = parseInt($("#ano").val());
             var mes = parseInt($("#mes").val()) - 1;
             var dia = parseInt($("#dia").val());
             var hora = parseInt($("#hora").val());
             var minuto = parseInt($("#minuto").val());
-            if ($("#ampm").val() == 'pm') {
-                hora += 12;
+                if ($("#ampm").val() == 'pm') {
+            hora += 12;
             }
-
+            
             eventDate = '' + eventDate.getDate() + '-' + (eventDate.getMonth() + 1) + '-' + eventDate.getFullYear();
             var date = new Date(ano, mes, dia, hora, minuto);
-            var alertData = {
+                var alertData = {
                 title: 'Recordatorio de Carrera',
                 message: 'La carrera "' + eventName + '" se realizara el ' + eventDate,
                 date: date,
-                event: eventName
+            event: eventName
             };
             var alertId = backend.addAlert(alertData, currentUserId);
-            if (alertId != -1) {
+                if (alertId != -1) {
                 alertData.id = alertId;
                 window.plugin.notification.local.add(alertData);
                 $scope.deselectRace();
                 alert('Su notificacion fue agregada correctamente');
-                $scope.$apply();
+            $scope.$apply();
             }
-            else {
-                alert('No ha sido posible crear su notificacion, intentalo mas tarde.');
-            }
+                else {
+            alert('No ha sido posible crear su notificacion, intentalo mas tarde.');
+        }
         };
-        $scope.cancelarAlerta = function (alertId) {
-            if (backend.deleteAlert(alertId)) {
+            $scope.cancelarAlerta = function (alertId) {
+                if (backend.deleteAlert(alertId)) {
                 $('#alert-' + alertId).remove();
                 window.plugin.notification.local.cancel(alertId, function () {
-                });
+            });
             } else
-            {
-                alert('No ha sido posible eliminar tu notificacion, intentalo mas tarde.');
+                {
+            alert('No ha sido posible eliminar tu notificacion, intentalo mas tarde.');
             }
-
+        
         };
-        $scope.$on('$routeChangeStart', function (events, next, current) {
+            $scope.$on('$routeChangeStart', function (events, next, current) {
             funcPath = "location.href = '#" + current.$$route.originalPath + "'";
-            app.pushEventToQuote(funcPath);
-        });
-    }]);
-angulargap.controller("NutricionalController", ['$scope', '$location', 'localStorageService', '$sce', function ($scope, $location, localStorageService, $sce) {
+        app.pushEventToQuote(funcPath);
+    });
+}]);
+        angulargap.controller("NutricionalController", ['$scope', '$location', 'localStorageService', '$sce', function ($scope, $location, localStorageService, $sce) {
         app.beforeRender($scope, localStorageService);
         $scope.posts = backend.getPosts($scope, 2, localStorageService);
         $scope.postType = 'nutricional';
         $scope.pathImg = backend.url + "img/";
-        $scope.getExcerpt = function (text) {
+            $scope.getExcerpt = function (text) {
             var visibleText = $(text).text().substring(1, 200);
-            return $sce.trustAsHtml('<p>' + visibleText + '<p>');
+        return $sce.trustAsHtml('<p>' + visibleText + '<p>');
         }
-        $scope.$on('$routeChangeStart', function (events, next, current) {
+            $scope.$on('$routeChangeStart', function (events, next, current) {
             funcPath = "location.href = '#" + current.$$route.originalPath + "'";
-            app.pushEventToQuote(funcPath);
+        app.pushEventToQuote(funcPath);
         });
-        $scope.$on('$viewContentLoaded', function () {
-            PostApp.initialize();
-        });
-    }]);
-angulargap.controller("TrainingController", ['$scope', '$location', 'localStorageService', '$sce', function ($scope, $location, localStorageService, $sce) {
+            $scope.$on('$viewContentLoaded', function () {
+        PostApp.initialize();
+    });
+}]);
+        angulargap.controller("TrainingController", ['$scope', '$location', 'localStorageService', '$sce', function ($scope, $location, localStorageService, $sce) {
         app.beforeRender($scope, localStorageService);
         $scope.posts = backend.getPosts($scope, 1, localStorageService);
         $scope.postType = 'training';
         $scope.pathImg = backend.url + "img/";
-        $scope.getExcerpt = function (text) {
+            $scope.getExcerpt = function (text) {
             var visibleText = $(text).text().substring(1, 200);
-            return $sce.trustAsHtml('<p>' + visibleText + '<p>');
+        return $sce.trustAsHtml('<p>' + visibleText + '<p>');
         }
-        $scope.$on('$routeChangeStart', function (events, next, current) {
+            $scope.$on('$routeChangeStart', function (events, next, current) {
             funcPath = "location.href = '#" + current.$$route.originalPath + "'";
-            app.pushEventToQuote(funcPath);
+        app.pushEventToQuote(funcPath);
         });
-        $scope.$on('$viewContentLoaded', function () {
-            PostApp.initialize();
-        });
-    }]);
-angulargap.controller("NewsController", ['$scope', '$location', 'localStorageService', '$sce', function ($scope, $location, localStorageService, $sce) {
+            $scope.$on('$viewContentLoaded', function () {
+        PostApp.initialize();
+    });
+}]);
+        angulargap.controller("NewsController", ['$scope', '$location', 'localStorageService', '$sce', function ($scope, $location, localStorageService, $sce) {
         app.beforeRender($scope, localStorageService);
         $scope.posts = backend.getPosts($scope, 3, localStorageService);
         $scope.postType = 'Noticias';
         $scope.pathImg = backend.url + "img/";
-        $scope.getExcerpt = function (text) {
+            $scope.getExcerpt = function (text) {
             var visibleText = $(text).text().substring(1, 200);
-            return $sce.trustAsHtml('<p>' + visibleText + '<p>');
+        return $sce.trustAsHtml('<p>' + visibleText + '<p>');
         }
-        $scope.$on('$routeChangeStart', function (events, next, current) {
+            $scope.$on('$routeChangeStart', function (events, next, current) {
             funcPath = "location.href = '#" + current.$$route.originalPath + "'";
-            app.pushEventToQuote(funcPath);
+        app.pushEventToQuote(funcPath);
         });
-        $scope.$on('$viewContentLoaded', function () {
-            PostApp.initialize();
-        });
-    }]);
-angulargap.controller("ViewPostController", ['$scope', '$routeParams', '$location', 'localStorageService', function ($scope, $routeParams, $location, localStorageService) {
+            $scope.$on('$viewContentLoaded', function () {
+        PostApp.initialize();
+    });
+}]);
+        angulargap.controller("ViewPostController", ['$scope', '$routeParams', '$location', 'localStorageService', function ($scope, $routeParams, $location, localStorageService) {
         app.beforeRender($scope, localStorageService);
         var id = $routeParams.id;
-        var $categorias = {
+            var $categorias = {
             1: 'entrenamiento',
             2: 'nutricional',
-            3: 'noticias'
+        3: 'noticias'
         };
         $scope.post = backend.getPost($scope, id, localStorageService);
         $scope.appKey = backend.key;
         $scope.postType = $categorias[$scope.post.Post.categoria];
         $scope.pathImg = backend.url + "img/";
         $scope.likestatus = backend.getLikeStatusPost(id, localStorageService.get('currentUserId'));
-        $scope.shareFBPost = function (message) {
-            facebookConnectPlugin.showDialog({method: 'share',
+            $scope.shareFBPost = function (message) {
+                facebookConnectPlugin.showDialog({method: 'share',
                 message: message,
-                href: "http://collaboration.wamdigital.com/runti/"
-            }, function (response) {
-                console.log(response);
-            });
-        };
-        $scope.shareOptions = function () {
-            $('#mask,.share-popup').addClass('show');
-        };
-        $scope.compartir = function (id, title) {
-            window.plugins.socialsharing.share('Mira este articulo en Runti "' + title + '"', null, null, backend.url + 'articulo/' + id + '-' + title);
-        };
-        $scope.closePopup = function () {
-            $('#mask,.share-popup').removeClass('show');
-        };
-        $scope.sendLike = function (elemt) {
-            $('#likestatus').val(1);
-            if ($('.like').hasClass('liked'))
-                $('#likestatus').val(0);
-            var likedata = $('#like-form').serialize();
-            backend.setLikeToPost(likedata);
-        };
-        $scope.$on('$routeChangeStart', function (events, next, current) {
-            funcPath = "location.href = '#" + current.$$route.originalPath + "'";
-            app.pushEventToQuote(funcPath);
+            href: "http://collaboration.wamdigital.com/runti/"
+                }, function (response) {
+            console.log(response);
         });
-    }]);
-angulargap.controller("LeftMenuController", ['$scope', '$location', 'localStorageService', function ($scope, $location, localStorageService) {
-        $scope.changeLocation = function (link) {
-            if (!app.menuOnAnimate) {
+        };
+            $scope.shareOptions = function () {
+        $('#mask,.share-popup').addClass('show');
+        };
+            $scope.compartir = function (id, title) {
+        window.plugins.socialsharing.share('Mira este articulo en Runti "' + title + '"', null, null, backend.url + 'articulo/' + id + '-' + title);
+        };
+            $scope.closePopup = function () {
+        $('#mask,.share-popup').removeClass('show');
+        };
+            $scope.sendLike = function (elemt) {
+            $('#likestatus').val(1);
+                if ($('.like').hasClass('liked'))
+            $('#likestatus').val(0);
+            var likedata = $('#like-form').serialize();
+        backend.setLikeToPost(likedata);
+        };
+            $scope.$on('$routeChangeStart', function (events, next, current) {
+            funcPath = "location.href = '#" + current.$$route.originalPath + "'";
+        app.pushEventToQuote(funcPath);
+    });
+}]);
+        angulargap.controller("LeftMenuController", ['$scope', '$location', 'localStorageService', function ($scope, $location, localStorageService) {
+            $scope.changeLocation = function (link) {
+                if (!app.menuOnAnimate) {
                 app.pushEventToQuote('events.left()');
                 homeApp.hideMenu();
-                setTimeout(function () {
+                    setTimeout(function () {
+                location.href = '#' + link;
+            }, 800);
+        }
+        };
+            $scope.leftActions = {
+                0: {
+                class: 'nutricional',
+                link: '/nutricional',
+            title: 'Nutrición'
+            },
+                1: {
+                class: 'training',
+                link: '/training',
+            title: 'Entrenamiento'
+            },
+                2: {
+                class: 'news',
+                link: '/news',
+            title: 'Noticias'
+        },
+    };
+}]);
+        angulargap.controller("MainMenuController", ['$scope', '$location', 'localStorageService', function ($scope, $location, localStorageService) {
+        $scope.validActionForGuest = ['/images', '/tem', '/nutricional', 'training/', '/news'];
+        $scope.userId = localStorageService.get('currentUserId');
+            $scope.appLogout = function () {
+        appLogout();
+        };
+            $scope.changeLocation = function (link) {
+            $scope.userId = localStorageService.get('currentUserId');
+                if (!app.menuOnAnimate) {
+                homeApp.hideMenu();
+                var gotoPage = true;
+                    if ($scope.userId == 0) {
+                        if ($scope.validActionForGuest.indexOf(link) == -1) {
+                        gotoPage = false;
+                    alert('Para acceder a esta seccion debes de crear una cuenta de usuario o iniciar sesion con facebook');
+                }
+                }
+                    if (gotoPage) {
+                    app.actionQuote = new Array();
+                    app.pushEventToQuote('events.right()');
+                        setTimeout(function () {
                     location.href = '#' + link;
                 }, 800);
             }
+        }
         };
-        $scope.leftActions = {
-            0: {
-                class: 'nutricional',
-                link: '/nutricional',
-                title: 'Nutrición'
-            },
-            1: {
-                class: 'training',
-                link: '/training',
-                title: 'Entrenamiento'
-            },
-            2: {
-                class: 'news',
-                link: '/news',
-                title: 'Noticias'
-            },
-        };
-    }]);
-angulargap.controller("MainMenuController", ['$scope', '$location', 'localStorageService', function ($scope, $location, localStorageService) {
-        $scope.validActionForGuest = ['/images', '/tem', '/nutricional', 'training/', '/news'];
-        $scope.userId = localStorageService.get('currentUserId');
-        $scope.appLogout = function () {
-            appLogout();
-        };
-        $scope.changeLocation = function (link) {
-            $scope.userId = localStorageService.get('currentUserId');
-            if (!app.menuOnAnimate) {
-                homeApp.hideMenu();
-                var gotoPage = true;
-                if ($scope.userId == 0) {
-                    if ($scope.validActionForGuest.indexOf(link) == -1) {
-                        gotoPage = false;
-                        alert('Para acceder a esta seccion debes de crear una cuenta de usuario o iniciar sesion con facebook');
-                    }
-                }
-                if (gotoPage) {
-                    app.actionQuote = new Array();
-                    app.pushEventToQuote('events.right()');
-                    setTimeout(function () {
-                        location.href = '#' + link;
-                    }, 800);
-                }
-            }
-        };
-        $scope.actions = {
-            0: {
+            $scope.actions = {
+                0: {
                 class: 'account',
                 link: '/profile',
-                title: 'Editar Perfil'
+            title: 'Editar Perfil'
             },
-            1: {
+                1: {
                 class: 'template',
                 link: '/template',
-                title: 'Cambiar Fondo'
+            title: 'Cambiar Fondo'
             },
-            2: {
+                2: {
                 class: 'friends',
                 link: '/friends',
-                title: 'Mis Amigos'
+            title: 'Mis Amigos'
             },
-            3: {
+                3: {
                 class: 'invite',
                 link: '/sendinvite',
-                title: 'Invitar Amigos a Evento'
+            title: 'Invitar Amigos a Evento'
             },
-            4: {
+                4: {
                 class: 'chat',
                 link: '/chat',
-                title: 'Chat'
+            title: 'Chat'
             },
-            5: {
+                5: {
                 class: 'photos',
                 link: '/images',
-                title: 'Fotos'
+            title: 'Fotos'
             },
-            6: {
+                6: {
                 class: 'sticker',
                 link: '/sticker',
-                title: 'Stickers'
+            title: 'Stickers'
             },
-            /*7: {
+             /*7: {
              class: 'spotify',
              link: '/spotify',
              title: 'Playlists Spotify'
-             },*/
-            9: {
+            },*/
+                9: {
                 class: 'term',
                 link: '/tem',
-                title: 'Terminos y condiciones'
+            title: 'Terminos y condiciones'
             },
-            10: {
+                10: {
                 class: 'notification',
                 link: '/notification',
-                title: 'Noticar Carreras'
-            }
+            title: 'Noticar Carreras'
         }
+    }
     }]);
 
 

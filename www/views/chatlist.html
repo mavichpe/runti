@@ -4,9 +4,11 @@
             <!--            <div class="back-bt" onclick="app.goBack();">
                             <img src="img/back-bt.png" />
                         </div>-->
-            <div class="icon-block">
+            <div class="page-icon">
                 <img src="img/chat/icon.png">
-                Chat
+            </div>
+            <div class="std-button green">
+                Chats
             </div>
             <div class="clearfix"></div>
             <ul class="friends {{currentChat.length ? 'border-last' : ''}} current-chat"  >
@@ -28,9 +30,10 @@
                     </div>
                 </li>
             </ul>
-            <h2 class="heading"> 
-                <b>Amigos</b>
-            </h2> 
+            <hr class="heavy"/>
+            <div class="std-button ligth-grey">
+                Amigos
+            </div>
             <ul class="friends {{friends.length ? 'border-last' : ''}}"  >
                 <li class="friend" ng-show="!friends.length">
                     <div class="">

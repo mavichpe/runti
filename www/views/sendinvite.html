@@ -4,34 +4,15 @@
             <!--            <div class="back-bt" onclick="app.goBack();">
                             <img src="img/back-bt.png" />
                         </div>-->
-            <div class="main-title">
+            <div class="page-icon">
                 <img src="img/invite/icon.png">
-                <label>Invitar amigos a un evento</label>
             </div>
-            <br/>
-            <br/>
-            <div class="search-form fullwidth">
-                <input name="data[User][filter]" id="search-input" type="text" placeholder="Nombre Amigo ..." style="width: 97%" />
+            <div class="text-box">
+                Escoje una carrera e invita a tus amigos que tienes dentro de <b>Runti</b> a correrla contigo. También puedes invitar a amigos que tienes fuera de nuestra <b> Aplicación</b>. 
             </div>
-            <ul class="invitedFriends">
-                <li class="heading">
-                    AMIGOS SELECCIONADOS
-                </li>
-                <li id='invite-user-{{user.id}}'ng-repeat="user in users" class="user-search-result" user-id="{{user.id}}" user-name="{{user.name}}" user-fcid="{{user.fcid}}">
-                    <img src="{{user.fcid ==0 ? 'img/profile/change-image.png' : 'https://graph.facebook.com/' + user.fcid + '/picture?type=large'}}">
-                    {{user.name}}
-                    <span class="token-input-delete-token" ng-click="removeItem(user.id)">×</span>
-                    <input type="hidden" name="data[User][0]" value="{{user.id}}">
-                </li>
-            </ul>
-            <ul class="options face">
-                <li class="invite-facebook" ng-click="inviteFBEvent('{{selectedEvent.Event.facelink}}')">
-                    <div class="icon"> 
-                        <img src="img/facebook-icon.png" /> 
-                        Invitar Amigos
-                    </div>
-                </li>
-            </ul>
+            <div class="std-button orange" ng-click="selectRace()">
+                Escoger Carrera
+            </div>
             <div class="selectedRaceBox" ng-if="selectedEvent != null">
                 <div class="heading">
                     Carrera Seleccionada
@@ -39,20 +20,63 @@
                 <ul class="options selectedRace" event-month="{{selectedEvent.Event.month}}" event-name="{{selectedEvent.Event.nombre}}">
                     <li >
                         <b>{{selectedEvent.Event.nombre}} </b>
-                    </li>
-                    <li class="delete" ng-click="deselectRace()">
-                        Deseleccionar
+                        <div class="delete-icon" ng-click="deselectRace()">x</div>
                     </li>
                 </ul>
             </div>
-            <ul class="options" style="padding: 0">
-                <li class="select" ng-click="selectRace()">
-                    Escoger Carrera
-                </li>
-                <li class="green" ng-click="sendInvitation()">
-                    Enviar Invitacion
-                </li>
-            </ul>
+            <hr/>
+            <br/>
+
+            <div class="selectedRaceBox">
+                <div class="heading">
+                    Seleccionar amigos 
+                </div>
+            </div>
+            <div class="search-wrapper">
+                <div class="std-button orange" ng-click="addFriends()">
+                    <div class="icon">
+                        <img class="lupa" src="img/invite/lupa.png">
+                    </div>
+                    <div class="title">Buscar en Runti</div>
+                </div>
+                <div class="search-form">
+                    <input name="data[User][filter]" id="search-input" type="text" placeholder="Nombre Amigo ..." style="width: 97%" />
+                    <div class="delete-icon" ng-click="hideAddFriend()">x</div>
+
+                </div>
+            </div>
+            <div class="std-button blue" ng-click="inviteFBEvent('{{selectedEvent.Event.facelink}}')">
+                <div class="icon">
+                    <img class="facebook" src="img/invite/facebook.png">
+                </div>
+                <div class="title">Invitar de Facebook</div>
+            </div>
+            <div class="selected-friends" ng-if="selectedEvent != null">
+                <ul class="invitedFriends">
+                    <li class="heading">
+                        AMIGOS SELECCIONADOS
+                    </li>
+                    <li id='invite-user-{{user.id}}'ng-repeat="user in users" class="user-search-result" user-id="{{user.id}}" user-name="{{user.name}}" user-fcid="{{user.fcid}}">
+                        <img src="{{user.fcid ==0 ? 'img/profile/change-image.png' : 'https://graph.facebook.com/' + user.fcid + '/picture?type=large'}}">
+                        {{user.name}}
+                        <span class="token-input-delete-token" ng-click="removeItem(user.id)">×</span>
+                        <input type="hidden" name="data[User][0]" value="{{user.id}}">
+                    </li>
+                </ul>
+                <br/>
+                <div class="enviar" ng-click="sendInvitation()" >
+                    <img src="img/invite/send.png"/>
+                </div>
+            </div>
+            <div class="std-button ligth-green" style="display: none">
+                Enviado
+            </div>
+        </div>
+        <div class="app-popup">
+            <div class="app-popup-box">
+                <div class="close-bt" ng-click="closePopup()"></div>
+                <img src="img/invite/select-race.png">
+            </div>
         </div>
     </ion-content>
 </div>

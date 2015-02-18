@@ -49,7 +49,7 @@
 
             <hr/>
 
-            <a class="std-button {{userData.Event.nombre != null ? 'selected': '';}}" href="javascript:void(0)" ng-click="selectRace()">
+            <a class="std-button green {{userData.Event.nombre != null ? 'selected': '';}}" href="javascript:void(0)" ng-click="selectRace()">
                 CUÁL VAS A CORRER? 
             </a>
 
@@ -60,6 +60,10 @@
             <a class="std-button" href="javascript:void(0)" ng-click="compartir('Voy a correr la carrera ' + userData.Event.nombre + ' el proximo ' + userData.Event.fecha)">
                 <img src="img/images/compartir.png" style="position: absolute;left: 10%;top: 4px;"> Compartir 
             </a>
+
+            <div class="heading">
+                <b>Selecciona</b> una carrera que vas a realizar proximamente. Y dale <b>compartir</b> para que  tus amigos te envien mensajes de apoyo. 
+            </div>
 
 
         </div>

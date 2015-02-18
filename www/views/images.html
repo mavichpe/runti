@@ -1,16 +1,15 @@
 <div id="images" >
     <ion-content>
         <div class="main-container ">
-            <div class="main-title">
+            <div class="page-icon">
                 <img src="img/images/icon.png">
-                <label>Fotos</label>
             </div>
-
+            <br/>
             <ul class="options">
-                <li ng-click="goToMyImages()">
+                <li class="std-button ligth-blue" ng-click="goToMyImages()">
                     Mis Imagenes
                 </li>
-                <li ng-click="goToRuntiImages()">
+                <li class="std-button ligth-grey" ng-click="goToRuntiImages()">
                     Fotos Runti 
                     <div class="sub-amount" ng-show="{{pendend > 0}}">{{pendend}}</div>
                 </li>

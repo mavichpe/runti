@@ -203,6 +203,11 @@ a {
 b {
   font-weight: 900; }
 
+hr.heavy {
+  padding: 2px;
+  background: #73777B;
+  border: none; }
+
 .sub-amount {
   position: absolute;
   width: 25px;
@@ -214,7 +219,7 @@ b {
   color: #fff;
   padding-top: 6px; }
 
-.std-button {
+.std-button, #invite .invitedFriends .user-search-result {
   background: #E3E9ED;
   color: #000;
   font-size: 20px;
@@ -227,24 +232,56 @@ b {
   width: 95%;
   position: relative;
   text-transform: uppercase;
-  display: block; }
+  display: block;
+  overflow: hidden; }
+  .std-button .icon, #invite .invitedFriends .user-search-result .icon {
+    float: left;
+    width: 20%; }
+    .std-button .icon img, #invite .invitedFriends .user-search-result .icon img {
+      display: block;
+      float: right; }
+  .std-button .title, #invite .invitedFriends .user-search-result .title {
+    float: left;
+    width: 80%;
+    margin-top: 14px; }
 
-.std-button.have-pending, .std-button.accept {
+.std-button.have-pending, #invite .invitedFriends .have-pending.user-search-result, .std-button.accept, #invite .invitedFriends .accept.user-search-result {
   background: #32B446;
   color: #fff; }
 
-.std-button.facebook-request {
+.std-button.facebook-request, #invite .invitedFriends .facebook-request.user-search-result {
   background: #1C7AA5; }
 
-.std-button.response-request {
+.std-button.response-request, #invite .invitedFriends .response-request.user-search-result {
   width: 45%;
   float: left;
   font-size: 13px;
   padding: 10px 0;
   margin-top: 20px; }
 
-.std-button.green {
+.std-button.green, #invite .invitedFriends .green.user-search-result {
   background: #00A559;
+  color: #fff; }
+
+.std-button.orange, #invite .invitedFriends .orange.user-search-result {
+  background: #F27524;
+  color: #fff; }
+
+.std-button.blue, #invite .invitedFriends .blue.user-search-result {
+  background: #0096D1;
+  color: #fff; }
+
+.std-button.ligth-green, #invite .invitedFriends .ligth-green.user-search-result {
+  background: #3FBC9E;
+  color: #fff; }
+
+.std-button.ligth-blue, #invite .invitedFriends .ligth-blue.user-search-result {
+  background: #65B7CC;
+  color: #fff; }
+
+.std-button.ligth-grey, #invite .invitedFriends .ligth-grey.user-search-result {
+  background: #23282E;
+  border: 1px #fff solid;
   color: #fff; }
 
 .page-icon {
@@ -334,7 +371,7 @@ h2 {
     z-index: 2;
     opacity: 1;
 }*/
-#profile .scroll-content, #friends .scroll-content, #template .scroll-content, #spotify .scroll-content, #sticker .scroll-content, #sticker.stage, #images .scroll-content, #image-view .scroll-content, #images-list .scroll-content, #images-album .scroll-content, #invite .scroll-content, #notification .scroll-content {
+#profile .scroll-content, #friends .scroll-content, #template .scroll-content, #spotify .scroll-content, #sticker .scroll-content, #sticker.stage, #images .scroll-content, #image-view .scroll-content, #images-list .scroll-content, #images-album .scroll-content, #images-upload .scroll-content, #invite .scroll-content, #notification .scroll-content {
   background: #20252A; }
 
 #chatmessage .scroll-content {
@@ -1588,6 +1625,15 @@ h2 {
   width: 320px; }
 #images .main-title, #images-list .main-title {
   color: #fff; }
+#images .sub-amount, #images-list .sub-amount {
+  width: 35px;
+  height: 35px;
+  background: #F1F2F2;
+  right: 5px;
+  top: 7px;
+  color: #717377;
+  padding-top: 9px;
+  font-size: 21px; }
 
 .options {
   padding: 25px 0;
@@ -1744,7 +1790,7 @@ h2 {
 
 #images-upload .main-container {
   padding: 0;
-  margin-top: 80px; }
+  margin-top: 20px; }
 #images-upload .photo-button {
   width: 300px;
   margin: 0 auto;
@@ -1849,8 +1895,6 @@ h2 {
 #images-album .main-title {
   width: 220px;
   color: #fff; }
-#images-album .album-list {
-  padding-top: 45px; }
 #images-album .white-box {
   padding: 10px 0;
   border: 1px solid #fff;
@@ -1862,9 +1906,12 @@ h2 {
   text-align: center;
   text-decoration: none;
   color: #fff;
-  display: block; }
+  display: block;
+  background: #EFF0F1;
+  color: #5D6065; }
 #images-album .white-box.pendend {
-  background: #65B740; }
+  background: #65B740;
+  color: #fff; }
 
 #posts.nutricional .title {
   background: #48B648; }
@@ -2007,11 +2054,53 @@ h2 {
   #invite .main-title label {
     padding-top: 20px;
     display: block; }
+#invite .search-wrapper {
+  width: 95%;
+  margin: 0 auto;
+  max-width: 400px;
+  position: relative; }
+  #invite .search-wrapper .std-button, #invite .search-wrapper .invitedFriends .user-search-result, #invite .invitedFriends .search-wrapper .user-search-result {
+    width: 100%; }
+  #invite .search-wrapper .search-form {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #fff;
+    padding: 8px 0;
+    border-radius: 5px;
+    width: 100%;
+    opacity: 1;
+    z-index: -1;
+    opacity: 0;
+    transition: 0.7s all;
+    -webkit-transition: 0.7s all;
+    -moz-transition: 0.7s all; }
+    #invite .search-wrapper .search-form ul {
+      border: none; }
+    #invite .search-wrapper .search-form .delete-icon, #invite .search-wrapper .search-form #notification .notificaciones .heading .delete, #notification .notificaciones .heading #invite .search-wrapper .search-form .delete {
+      background: #000;
+      text-align: center;
+      top: 10px;
+      right: 3px; }
+    #invite .search-wrapper .search-form.show {
+      opacity: 1;
+      z-index: 10;
+      opacity: 1; }
 #invite .invitedFriends {
   padding: 10px 0;
-  border: 1px solid #fff;
   border-radius: 10px;
   overflow: hidden; }
+  #invite .invitedFriends .search-form {
+    position: absolute;
+    top: 0;
+    left: 0; }
+  #invite .invitedFriends .user-search-result {
+    text-align: left;
+    line-height: 60px; }
+    #invite .invitedFriends .user-search-result img {
+      margin-left: 20px;
+      max-width: 60px;
+      border-radius: 50%; }
   #invite .invitedFriends li {
     position: relative;
     border-top: 1px #32373D solid;
@@ -2022,21 +2111,21 @@ h2 {
     float: left;
     color: #fff; }
     #invite .invitedFriends li .token-input-delete-token {
-      background: #EB1C3D;
       width: 30px;
       height: 30px;
       display: block;
       position: absolute;
       right: 5px;
-      top: 32px;
       font-size: 29px;
       line-height: 34px;
       text-align: center;
       border-radius: 50%;
-      font-weight: bold; }
+      font-weight: bold;
+      top: 21px;
+      background: #000;
+      color: #fff; }
   #invite .invitedFriends .heading {
     border-top: none;
-    max-width: 97%;
     text-align: center;
     margin: 0 auto;
     width: 100%; }
@@ -2076,6 +2165,18 @@ h2 {
   border-radius: 5px;
   text-align: center;
   color: #fff; }
+#invite .enviar {
+  max-width: 80px;
+  margin: 0 auto; }
+  #invite .enviar img {
+    width: 100%;
+    height: auto; }
+#invite .app-popup-box {
+  width: 300px;
+  background: transparent;
+  height: auto;
+  padding: 0;
+  margin: 0 auto; }
 
 .delete-icon, #notification .notificaciones .heading .delete {
   position: absolute;
@@ -2087,7 +2188,8 @@ h2 {
   line-height: 30px;
   border-radius: 50%;
   font-size: 23px;
-  font-weight: bold; }
+  font-weight: bold;
+  text-transform: none; }
 
 #notification .main-title {
   width: 250px;
@@ -2299,13 +2401,15 @@ h2 {
 #chatmessage .back-bt {
   height: 20px; }
   #chatmessage .back-bt img {
-    height: 100%;
-    width: auto; }
+    height: auto;
+    width: 40px;
+    margin-top: -9px; }
 #chatmessage .main-container {
   padding: 55px 0 0;
   width: 100%; }
 #chatmessage .heading {
-  background: #00A559;
+  background: #00a559 url(../img/chat/conversation-icon.png) no-repeat;
+  background-position: 98% center;
   padding: 20px 0;
   position: fixed;
   width: 100%;

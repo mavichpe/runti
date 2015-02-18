@@ -30,6 +30,8 @@ var backend = {
                     localStorageService.set('currentUserId', data.userId);
                     localStorageService.set('userTemplate', data.userTemplate);
                     backend.saveRegId(localStorageService);
+                    $('.main-menu .login').hide();
+                    $('.main-menu .logout').show();
                 }
             },
             complete: function (data, da, dat) {
@@ -58,6 +60,8 @@ var backend = {
                     localStorageService.set('currentUserId', data.userId);
                     localStorageService.set('userTemplate', data.userTemplate);
                     backend.saveRegId(localStorageService);
+                    $('.main-menu .login').hide();
+                    $('.main-menu .logout').show();
                 }
             },
             complete: function () {

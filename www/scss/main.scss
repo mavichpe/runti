@@ -96,6 +96,11 @@ a{
 b{ 
     font-weight: 900;
 }
+hr.heavy{
+    padding: 2px;
+    background: #73777B;
+    border: none;
+}
 .sub-amount{
     position: absolute;
     width: 25px;
@@ -121,6 +126,20 @@ b{
     position: relative;
     text-transform: uppercase;
     display: block;
+    overflow:hidden;
+    .icon{
+        float: left;
+        width: 20%;
+        img{
+            display: block;
+            float: right;
+        }
+    }
+    .title{
+        float: left;
+        width: 80%;
+        margin-top: 14px;
+    }
 }
 .std-button.have-pending,.std-button.accept{
     background: #32B446;
@@ -138,6 +157,27 @@ b{
 }
 .std-button.green{
     background: #00A559;
+    color: #fff;
+}
+.std-button.orange{
+    background: #F27524;
+    color: #fff;
+}
+.std-button.blue{
+    background: #0096D1;
+    color: #fff;
+}
+.std-button.ligth-green{
+    background: #3FBC9E;
+    color: #fff;
+}
+.std-button.ligth-blue{
+    background: #65B7CC;
+    color: #fff;
+}  
+.std-button.ligth-grey{
+    background: #23282E;
+    border: 1px #fff solid;
     color: #fff;
 }
 .page-icon{
@@ -237,7 +277,7 @@ h2{
     opacity: 1;
 }*/
 
-#profile .scroll-content ,#friends .scroll-content,#template .scroll-content,#spotify .scroll-content,#sticker .scroll-content,#sticker.stage,#images .scroll-content,#image-view .scroll-content,#images-list .scroll-content,#images-album .scroll-content,#invite .scroll-content,#notification .scroll-content{
+#profile .scroll-content ,#friends .scroll-content,#template .scroll-content,#spotify .scroll-content,#sticker .scroll-content,#sticker.stage,#images .scroll-content,#image-view .scroll-content,#images-list .scroll-content,#images-album .scroll-content,#images-upload .scroll-content, #invite .scroll-content,#notification .scroll-content{
     background: #20252A;
 }
 #chatmessage .scroll-content{
@@ -1681,6 +1721,16 @@ h2{
     .main-title{
         color: #fff;
     }
+    .sub-amount{
+        width: 35px;
+        height: 35px;
+        background: #F1F2F2;
+        right: 5px;
+        top: 7px;
+        color: #717377;
+        padding-top: 9px;
+        font-size: 21px;
+    }
 
 }
 .options{
@@ -1886,7 +1936,7 @@ h2{
 #images-upload{
     .main-container{
         padding: 0;
-        margin-top: 80px;
+        margin-top: 20px;
     }
     .photo-button{
         width: 300px;
@@ -2030,9 +2080,6 @@ h2{
         width: 220px;
         color: #fff;
     }
-    .album-list{
-        padding-top: 45px;
-    }
     .white-box{
         padding: 10px 0;
         border: 1px solid #fff;
@@ -2045,9 +2092,12 @@ h2{
         text-decoration: none;
         color: #fff;
         display: block;
+        background: #EFF0F1;
+        color:#5D6065;
     }
     .white-box.pendend{
         background: #65B740;
+        color: #fff;
     }
 }
 
@@ -2244,11 +2294,62 @@ h2{
             display: block;
         }
     }
+    .search-wrapper{
+        width: 95%;
+        margin: 0 auto;
+        max-width: 400px;
+        position: relative;
+        .std-button{
+            width: 100%;
+        }
+        .search-form{
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #fff;
+            padding: 8px 0;
+            border-radius: 5px;
+            width: 100%;
+            opacity: 1;
+            z-index: -1;
+            opacity: 0;
+            @include set-transition(0.7s all);
+            ul{
+                border: none;
+            }
+            .delete-icon{
+                background: #000;
+                text-align: center;
+                top: 10px;
+                right: 3px;
+            }
+            &.show{
+                opacity: 1;
+                z-index: 10;
+                opacity: 1;
+            }
+        }
+    }
     .invitedFriends{
         padding: 10px 0;
-        border: 1px solid #fff;
         border-radius: 10px;
         overflow: hidden;
+        .search-form{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .user-search-result{
+            @extend .std-button;
+            text-align: left;
+            line-height:60px;
+            img{
+                margin-left: 20px;
+                max-width: 60px;
+                border-radius: 50%;
+            }
+
+        }
         li{
             position: relative;
             border-top: 1px #32373D solid;
@@ -2259,23 +2360,23 @@ h2{
             float:left;
             color:#fff;
             .token-input-delete-token{
-                background: #EB1C3D;
                 width: 30px;
                 height: 30px;
                 display: block;
                 position: absolute;
                 right: 5px;
-                top: 32px;
                 font-size: 29px;
                 line-height: 34px;
                 text-align: center;
                 border-radius: 50%;
                 font-weight: bold;
+                top: 21px;
+                background: #000;
+                color: #fff;
             }
         }
         .heading{
             border-top: none;
-            max-width: 97%;
             text-align: center;
             margin: 0 auto;
             width: 100%;
@@ -2328,6 +2429,22 @@ h2{
             color: #fff;
         }
     }
+    .enviar{
+        max-width: 80px;
+        margin:0 auto;
+        img{
+            width: 100%;
+            height: auto;
+        }
+
+    }
+    .app-popup-box{
+        width: 300px;
+        background: transparent;
+        height: auto;
+        padding: 0;
+        margin: 0 auto;
+    }
 }
 
 .delete-icon{
@@ -2341,6 +2458,7 @@ h2{
     border-radius: 50%;
     font-size: 23px;
     font-weight: bold;
+    text-transform: none;
 }
 
 #notification{
@@ -2595,8 +2713,9 @@ h2{
     .back-bt{
         height: 20px;
         img{
-            height: 100%;
-            width: auto;
+            height: auto;
+            width: 40px;
+            margin-top: -9px;
         }
     }
     .main-container{
@@ -2604,7 +2723,8 @@ h2{
         width: 100%;
     }
     .heading{
-        background: #00A559;
+        background: #00A559 url(../img/chat/conversation-icon.png) no-repeat;
+        background-position: 98% center;
         padding: 20px 0;
         position: fixed;
         width: 100%;

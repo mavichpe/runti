@@ -309,7 +309,11 @@
 /Applications/XAMPP/xamppfiles/htdocs/runti/platforms/android/assets/www/img/images/me-gusta-unactive-white.png \
 /Applications/XAMPP/xamppfiles/htdocs/runti/platforms/android/assets/www/img/images/me-gusta-unactive.png \
 /Applications/XAMPP/xamppfiles/htdocs/runti/platforms/android/assets/www/img/images/tomar-foto.png \
+/Applications/XAMPP/xamppfiles/htdocs/runti/platforms/android/assets/www/img/invite/facebook.png \
 /Applications/XAMPP/xamppfiles/htdocs/runti/platforms/android/assets/www/img/invite/icon.png \
+/Applications/XAMPP/xamppfiles/htdocs/runti/platforms/android/assets/www/img/invite/lupa.png \
+/Applications/XAMPP/xamppfiles/htdocs/runti/platforms/android/assets/www/img/invite/select-race.png \
+/Applications/XAMPP/xamppfiles/htdocs/runti/platforms/android/assets/www/img/invite/send.png \
 /Applications/XAMPP/xamppfiles/htdocs/runti/platforms/android/assets/www/img/load/background.png \
 /Applications/XAMPP/xamppfiles/htdocs/runti/platforms/android/assets/www/img/load/clouds.png \
 /Applications/XAMPP/xamppfiles/htdocs/runti/platforms/android/assets/www/img/load/road.png \
@@ -327,6 +331,7 @@
 /Applications/XAMPP/xamppfiles/htdocs/runti/platforms/android/assets/www/img/menu/close.png \
 /Applications/XAMPP/xamppfiles/htdocs/runti/platforms/android/assets/www/img/menu/friends.png \
 /Applications/XAMPP/xamppfiles/htdocs/runti/platforms/android/assets/www/img/menu/invite.png \
+/Applications/XAMPP/xamppfiles/htdocs/runti/platforms/android/assets/www/img/menu/login.png \
 /Applications/XAMPP/xamppfiles/htdocs/runti/platforms/android/assets/www/img/menu/news.png \
 /Applications/XAMPP/xamppfiles/htdocs/runti/platforms/android/assets/www/img/menu/notification.png \
 /Applications/XAMPP/xamppfiles/htdocs/runti/platforms/android/assets/www/img/menu/nutricional.png \
